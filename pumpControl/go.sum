@@ -1,0 +1,6 @@
+github.com/gorilla/websocket v1.5.0 h1:PPwGk2jz7EePpoHN/+ClbZu8SPxiqlu12wZP/3sWmnc=
+github.com/gorilla/websocket v1.5.0/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=
+github.com/stianeikeland/go-rpio v1.0.0 h1:9a5DDConuUBSBR4mYsr9dV0uAxGypybCumg0KR2o3fc=
+github.com/stianeikeland/go-rpio v4.2.0+incompatible h1:CUOlIxdJdT+H1obJPsmg8byu7jMSECLfAN9zynm5QGo=
+github.com/stianeikeland/go-rpio/v4 v4.6.0 h1:eAJgtw3jTtvn/CqwbC82ntcS+dtzUTgo5qlZKe677EY=
+github.com/stianeikeland/go-rpio/v4 v4.6.0/go.mod h1:A3GvHxC1Om5zaId+HqB3HKqx4K/AqeckxB7qRjxMK7o=
