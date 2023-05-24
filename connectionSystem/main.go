@@ -19,11 +19,12 @@ func homepage(w http.ResponseWriter, r *http.Request) {
 
 func websocketRoute(w http.ResponseWriter, r *http.Request) {
 	upgrader.CheckOrigin = func(r *http.Request) bool {
-		if conManager.IsConnected == true {
-			return false
-		} else {
-			return true
-		}
+		// if conManager.IsConnected == true {
+		// 	return false
+		// } else {
+		// 	return true
+		// }
+		return true
 	}
 	ws, err := upgrader.Upgrade(w, r, nil)
 

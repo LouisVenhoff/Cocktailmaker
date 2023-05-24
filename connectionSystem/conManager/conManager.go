@@ -11,24 +11,29 @@ var IsConnected bool = false
 var sessionKey string = ""
 var keyLen int = 10
 
+var id string = ""
+
 func Initialize() {
 	fmt.Println("Initializing conManager!")
 
 	sessionKey = keygen.GenerateKey(keyLen)
-
+	id = keygen.GenerateKey(3)
 }
 
 type PayloadObj struct {
+	Id      string
 	Key     string
 	Com     int
 	Payload int
 }
 
 type LoginObj struct {
+	Id  string
 	Key string
 }
 
 type ResponseObj struct {
+	Id   string
 	Code int
 }
 
@@ -50,9 +55,11 @@ func ProcessPayload(rawPayload string) string {
 
 	switch data.Key {
 	case "":
+		loginOut.Id = id
 		if IsConnected == false {
 			loginOut.Key = sessionKey
 			IsConnected = true
+			fmt.Println("Client connected!")
 		} else {
 			loginOut.Key = ""
 		}
@@ -65,6 +72,7 @@ func ProcessPayload(rawPayload string) string {
 
 		internalInterface.SendToAddr("8080", string(sendStr))
 		var r ResponseObj
+		r.Id = id
 		r.Code = 200
 		byteArr, _ := json.Marshal(r)
 		outStr = string(byteArr)
