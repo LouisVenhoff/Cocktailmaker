@@ -8,6 +8,9 @@ class Socket
     private socketInst:WebSocket | null = null;
 
     private deviceId:string;
+    private machineKey:string = "";
+
+
 
     private onConnect:() => void;
     private onDisconnect: () => void;
@@ -60,7 +63,7 @@ class Socket
     public send(payload:any){
 
         payload.id = this.deviceId;
-
+        payload.key = this.machineKey;
         let payloadStr = JSON.stringify(payload);
         
         if(this.socketInst !== null)
@@ -107,6 +110,11 @@ class Socket
 
             if(this.verifyMsgObj(parsedMsg))
             {
+                if(parsedMsg.Key != undefined){
+                    this.machineKey = parsedMsg.Key;
+                    window.alert(this.machineKey);
+                }
+                
                 this.onMessage(parsedMsg);
             }
 

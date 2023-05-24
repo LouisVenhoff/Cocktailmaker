@@ -16,7 +16,7 @@ type LoginCommand = {
 
 const PumpList: React.FC = () => {
     
-    const [machineKey, setMachineKey] = useState<string>("");
+    const [machineKey, setMachineKey] = useState<string>(""); 
     const [loaded, setLoaded] = useState<boolean>(false);
     const [socket, setSocket] = useState<Socket>(Socket.getInstance("ws://localhost:3014/ws", true, () => {login()}, () => {setLoaded(false)}, (payload:any) => {messageHandler(payload)}));
     
@@ -39,7 +39,7 @@ const PumpList: React.FC = () => {
     const sendCommand = (pNr:number) => {
         let cmd:Command = {
             id: "",
-            key: machineKey,
+            key: "",
             pumpNr: pNr
         }
 
