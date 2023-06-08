@@ -1,0 +1,11 @@
+.containerRowMainDiv
+{
+    position:relative;
+    width:90%;
+    height:150px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top:10px;
+    margin-bottom:20px;
+}

@@ -1,0 +1,34 @@
+.headerMainDiv
+{
+    position:relative;
+    background-color:#383d48;
+    width:100%;
+    height:60px;
+    color:whitesmoke;
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-start;
+    align-items:center;
+}
+
+.backBtnElement{
+    margin-left:10px;
+}
+
+
+.headerText{
+    position:relative;
+    margin-left:10px;
+    
+}
+
+@keyframes applyBtn{
+    0% {
+       right:30px; 
+    }
+    100%{
+        right:0px;
+    }
+}
+
+

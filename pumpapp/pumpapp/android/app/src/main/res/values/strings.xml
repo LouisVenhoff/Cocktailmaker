@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">cocktailhw</string>
+    <string name="title_activity_main">cocktailhw</string>
+    <string name="package_name">com.cocktailhw.app</string>
+    <string name="custom_url_scheme">com.cocktailhw.app</string>
+</resources>

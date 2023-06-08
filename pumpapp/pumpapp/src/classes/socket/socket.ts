@@ -1,3 +1,7 @@
+//Websocket single connection implementation by Louis Venhoff
+
+
+
 import Keygen from "./keygen";
 
 class Socket 
@@ -34,7 +38,6 @@ class Socket
 
     private constructor(addr:string, autoConnect:boolean, onConnect:() => void, onDisconnect:() => void, onMessage: (payload:any) => void)
     {
-        console.log("Called Constructor");
         this.addr = addr;
         this.onConnect = onConnect;
         this.onDisconnect = onDisconnect;
@@ -55,11 +58,7 @@ class Socket
 
     }
 
-    public pseudoSend(cmd:string)//Only for testing
-    {
-        console.log("Sending: " + cmd)
-    }
-
+   
     public send(payload:any){
 
         payload.id = this.deviceId;

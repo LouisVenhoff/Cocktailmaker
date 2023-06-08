@@ -5,8 +5,9 @@ import Socket from "../../classes/socket/socket";
 
 type Command = {
     id: string
+    com: number
     key: string
-    pumpNr: number
+    Payload: number
 }
 
 type LoginCommand = {
@@ -17,8 +18,8 @@ type LoginCommand = {
 const PumpList: React.FC = () => {
     
     const [machineKey, setMachineKey] = useState<string>(""); 
-    const [loaded, setLoaded] = useState<boolean>(false);
-    const [socket, setSocket] = useState<Socket>(Socket.getInstance("ws://localhost:3014/ws", true, () => {login()}, () => {setLoaded(false)}, (payload:any) => {messageHandler(payload)}));
+    const [loaded, setLoaded] = useState<boolean>(true);
+    const [socket, setSocket] = useState<Socket>(Socket.getInstance("ws://raspberrypi:3014/ws", true, () => {login()}, () => {setLoaded(false)}, (payload:any) => {messageHandler(payload)}));
     
 
 
@@ -40,7 +41,8 @@ const PumpList: React.FC = () => {
         let cmd:Command = {
             id: "",
             key: "",
-            pumpNr: pNr
+            com: 0,
+            Payload: pNr
         }
 
         socket.send(cmd);
