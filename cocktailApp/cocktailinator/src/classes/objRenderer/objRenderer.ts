@@ -113,12 +113,6 @@ class ObjRenderer {
         this.rotateObject();
     }
 
-    private enableOrbitControls(){
-
-    }
-
-    
-    
     
     private async rotateObject() {
         while (true) {
