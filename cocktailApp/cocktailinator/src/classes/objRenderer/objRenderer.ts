@@ -115,6 +115,7 @@ class ObjRenderer {
 
     
     private async rotateObject() {
+        
         while (true) {
             this.object.rotation.y += 0.1;
             //this.object.rotation.x += 0.1;

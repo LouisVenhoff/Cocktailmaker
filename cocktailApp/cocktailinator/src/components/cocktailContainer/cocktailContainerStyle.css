@@ -3,9 +3,14 @@
     position:relative;
     width:170px;
     height:170px;
-    background-color:#434a5a;
+    /* background-color:#434a5a; */
+    background-image:linear-gradient(#434a5a, #000000);
     /* margin:10px; */
     border-radius:10px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: center;
 }
 
 .objCanvas
@@ -13,5 +18,11 @@
     position:relative;
     width:120px;
     height:120px;
-    margin-top:10px;
+    margin-top:70px;
+}
+
+.discriptions{
+    position:relative;
+    color:whitesmoke;
+    bottom:50px;
 }
