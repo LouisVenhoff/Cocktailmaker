@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./containerRowStyle.css";
 import CocktailContainer from "../cocktailContainer/cocktailContainer";
 import { MeshSource } from "../../classes/objRenderer/objRenderer";
@@ -10,17 +10,28 @@ import Cocktail from "../../classes/cocktail/cocktail";
 
 type CocktailRowProps = {
     left:Cocktail
-    right:Cocktail
+    right?:Cocktail
 }
 
 
 
 const ContainerRow:React.FC<CocktailRowProps> = ({left, right}) =>
 {    
+
+    const [rightElement, setRightElement] = useState<JSX.Element>();
+
+    useEffect(() => {
+        if(right !== undefined){
+            setRightElement(<CocktailContainer obj={right.getMesh()} name={right.getName()}/>);
+        }
+    },[]);
+
+
+
     return(
     <div className="containerRowMainDiv">
         <CocktailContainer obj={left.getMesh()} name={left.getName()}/>
-        <CocktailContainer obj={right.getMesh()} name={right.getName()}/>
+        {rightElement}
     </div>
     )
 }

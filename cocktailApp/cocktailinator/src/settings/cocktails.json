@@ -1,0 +1,106 @@
+[
+  {
+    "name": "Mojito",
+    "mesh": {
+      "objectPath": "/assets/r2d2/r2-d2.obj",
+      "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
+      "cameraDist": 200
+    }
+  },
+  {
+    "name": "Cosmopolitan",
+    "mesh": {
+      "objectPath": "/assets/r2d2/r2-d2.obj",
+      "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
+      "cameraDist": 200
+    }
+  },
+  {
+    "name": "Old Fashioned",
+    "mesh": {
+      "objectPath": "/assets/r2d2/r2-d2.obj",
+      "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
+      "cameraDist": 200
+    }
+  },
+  {
+    "name": "Martini",
+    "mesh": {
+      "objectPath": "/assets/r2d2/r2-d2.obj",
+      "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
+      "cameraDist": 200
+    }
+  },
+  {
+    "name": "Caipirinha",
+    "mesh": {
+      "objectPath": "/assets/r2d2/r2-d2.obj",
+      "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
+      "cameraDist": 200
+    }
+  },
+  {
+    "name": "Pina Colada",
+    "mesh": {
+      "objectPath": "/assets/r2d2/r2-d2.obj",
+      "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
+      "cameraDist": 200
+    }
+  },
+  {
+    "name": "Margarita",
+    "mesh": {
+      "objectPath": "/assets/r2d2/r2-d2.obj",
+      "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
+      "cameraDist": 200
+    }
+  },
+  {
+    "name": "Daiquiri",
+    "mesh": {
+      "objectPath": "/assets/r2d2/r2-d2.obj",
+      "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
+      "cameraDist": 200
+    }
+  },
+  {
+    "name": "Manhattan",
+    "mesh": {
+      "objectPath": "/assets/r2d2/r2-d2.obj",
+      "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
+      "cameraDist": 200
+    }
+  },
+  {
+    "name": "Negroni",
+    "mesh": {
+      "objectPath": "/assets/r2d2/r2-d2.obj",
+      "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
+      "cameraDist": 200
+    }
+  },
+  {
+    "name": "Whiskey Sour",
+    "mesh": {
+      "objectPath": "/assets/r2d2/r2-d2.obj",
+      "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
+      "cameraDist": 200
+    }
+  },
+  {
+    "name": "Mai Tai",
+    "mesh": {
+      "objectPath": "/assets/r2d2/r2-d2.obj",
+      "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
+      "cameraDist": 200
+    }
+  },
+  {
+    "name": "Screwdriver",
+    "mesh": {
+      "objectPath": "/assets/r2d2/r2-d2.obj",
+      "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
+      "cameraDist": 200
+    }
+  }
+]
