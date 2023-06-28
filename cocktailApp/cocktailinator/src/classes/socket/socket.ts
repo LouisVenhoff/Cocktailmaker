@@ -1,71 +1,151 @@
-import Keygen from "../helpers/keygen";
-
-
-type LoginObj= {
-    id:string;
-    key:string;
-}
+//Websocket single connection implementation by Louis Venhoff
 
 
 
-class Socket{
+import Keygen from "./keygen";
 
-
+class Socket 
+{
     private addr:string;
-    private port:number;
+    private connected:boolean = false;
+    
+    private socketInst:WebSocket | null = null;
 
-    private conn:any;
-
-
-    private clientID:string = "";
+    private deviceId:string;
     private machineKey:string = "";
 
 
-    constructor(addr:string, port:number){
+
+    private onConnect:() => void;
+    private onDisconnect: () => void;
+    private onMessage: (payload:any) => void;
+
+    private static instance:Socket | null = null;
+
+    public static getInstance(addr:string, autoConnect:boolean, onConnect:() => void, onDisconnect:() => void, onMessage: (payload:any) => void):Socket{
+
+        if(Socket.instance !== null){
+            return Socket.instance;
+        }
+        else{
+            Socket.instance = new Socket(addr, autoConnect, onConnect, onDisconnect, onMessage);
+            return Socket.instance;
+        }
+
+    }
+
+
+
+    private constructor(addr:string, autoConnect:boolean, onConnect:() => void, onDisconnect:() => void, onMessage: (payload:any) => void)
+    {
         this.addr = addr;
-        this.port = port;
+        this.onConnect = onConnect;
+        this.onDisconnect = onDisconnect;
+        this.onMessage = onMessage;
+        this.deviceId = Keygen.generateKey(3);
 
-        this.clientID = Keygen.generateClientKey(3);
+        if(autoConnect)
+        {
+            this.connect();
+        }
+    }
 
+
+    public connect()
+    {
+        this.socketInst = new WebSocket(`${this.addr}`);
+        this.addListeners();
+
+    }
+
+   
+    public send(payload:any){
+
+        payload.id = this.deviceId;
+        payload.key = this.machineKey;
+        let payloadStr = JSON.stringify(payload);
+        
+        if(this.socketInst !== null)
+        {
+            this.socketInst.send(payloadStr);
+        }
+        else
+        {
+            throw("Error: Check socket connection!");
+        }
+    }
+
+
+    public get connectionState():boolean{
+        return this.connected;
+    }
+
+
+    private addListeners()
+    {
+        
+        if(this.socketInst === null)
+        {
+            return;
+        }
+        
+        this.socketInst.addEventListener("open", () => {
+            if(this.connected === false){
+                this.connected = true;
+                this.onConnect();
+            }
+           
+        });
+
+        this.socketInst.addEventListener("close", () => {
+            this.connected = false;
+            Socket.instance = null;
+            this.onDisconnect();
+        });
+
+        this.socketInst.addEventListener("message", (payload:any) => {
+            let rawMsg:string = payload.data;
+            let parsedMsg:any = JSON.parse(rawMsg);
+
+            if(this.verifyMsgObj(parsedMsg))
+            {
+                if(parsedMsg.Key != undefined){
+                    this.machineKey = parsedMsg.Key;
+                }
+                
+                this.onMessage(parsedMsg);
+            }
+
+        })
+
+        this.socketInst.addEventListener("error", (err:any) => {
+            this.socketInst = null;
+            this.connect();
+        });
+    }
+
+
+    private verifyMsgObj(obj:any):boolean
+    {
+        
+        try
+        {
+            if(obj.id !== this.deviceId){
+                return true
+            }
+            else{
+                return false;
+            }
+        }
+        catch
+        {
+            window.alert("Wrong answer format");
+            return false;
+        }
         
     }
 
-    public async connect(){
-        //TODO: Connect and asuthenticate to the Server
-
-        try{
-            this.conn = new WebSocket(this.addr);
-        }
-        catch{
-            throw `Error while connecting to: ${this.addr}`
-        }
     
-        await this.authenticate();
-    }
-
-    private async authenticate():Promise<string>{
-
-            //TODO: Authenticate on server and return promise with machine Id
-            
-            let loginData:LoginObj = {
-                id:this.clientID,
-                key:""
-            }
-            
-            
-            this.conn.send(JSON.stringify(loginData));
-            
-            
-            
-            
-            return new Promise<string>((resolve, reject) => {
-
-            });
-
-
-    }
-
-
 
 
 
