@@ -46,8 +46,6 @@ class ObjRenderer {
         this.renderer = new Three.WebGLRenderer({ alpha: true, antialias: true });
         this.sceneSetup();
         this.addFileToScene(this.objSource);
-        //this.addExampleCube();
-        //this.addTestObj();
 
     }
 
@@ -55,12 +53,6 @@ class ObjRenderer {
         this.renderer.setSize(this.width, this.height);
         this.outElement = this.renderer.domElement;
 
-        // gBlack Background for debugging!
-        // let context:any = this.renderCanvas.getContext("2d");
-        // context.fillStyle = 'rgba(0,0,0,0.5)';
-        // context.fillRect(0,0,window.innerWidth,window.innerHeight);
-
-        // this.renderer.render(this.scene, this.camera);
     }
 
     private render() {

@@ -9,7 +9,7 @@ class CocktailLoader{
          let cocktailList:Cocktail[] = [];
       
         for(let i = 0; i < cocktails.length; i++){
-            cocktailList.push(new Cocktail(cocktails[i].name, cocktails[i].mesh))
+            cocktailList.push(new Cocktail(cocktails[i].name, cocktails[i].mesh, cocktails[i].content))
         }
 
         return cocktailList;

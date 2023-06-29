@@ -5,7 +5,12 @@
       "objectPath": "/assets/r2d2/r2-d2.obj",
       "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
       "cameraDist": 200
-    }
+    },
+    "content": [
+      { "pumpKey": "rum", "fluidAmount": 50 },
+      { "pumpKey": "lime juice", "fluidAmount": 20 },
+      { "pumpKey": "soda water", "fluidAmount": 100 }
+    ]
   },
   {
     "name": "Cosmopolitan",
@@ -13,7 +18,13 @@
       "objectPath": "/assets/r2d2/r2-d2.obj",
       "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
       "cameraDist": 200
-    }
+    },
+    "content": [
+      { "pumpKey": "vodka", "fluidAmount": 40 },
+      { "pumpKey": "cranberry juice", "fluidAmount": 30 },
+      { "pumpKey": "lime juice", "fluidAmount": 20 },
+      { "pumpKey": "triple sec", "fluidAmount": 10 }
+    ]
   },
   {
     "name": "Old Fashioned",
@@ -21,7 +32,13 @@
       "objectPath": "/assets/r2d2/r2-d2.obj",
       "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
       "cameraDist": 200
-    }
+    },
+    "content": [
+      { "pumpKey": "bourbon", "fluidAmount": 60 },
+      { "pumpKey": "sugar cube", "fluidAmount": 10 },
+      { "pumpKey": "bitters", "fluidAmount": 5 },
+      { "pumpKey": "orange peel", "fluidAmount": 5 }
+    ]
   },
   {
     "name": "Martini",
@@ -29,7 +46,12 @@
       "objectPath": "/assets/r2d2/r2-d2.obj",
       "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
       "cameraDist": 200
-    }
+    },
+    "content": [
+      { "pumpKey": "gin", "fluidAmount": 50 },
+      { "pumpKey": "dry vermouth", "fluidAmount": 10 },
+      { "pumpKey": "olive", "fluidAmount": 1 }
+    ]
   },
   {
     "name": "Caipirinha",
@@ -37,7 +59,12 @@
       "objectPath": "/assets/r2d2/r2-d2.obj",
       "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
       "cameraDist": 200
-    }
+    },
+    "content": [
+      { "pumpKey": "cachaça", "fluidAmount": 50 },
+      { "pumpKey": "lime", "fluidAmount": 20 },
+      { "pumpKey": "sugar", "fluidAmount": 10 }
+    ]
   },
   {
     "name": "Pina Colada",
@@ -45,7 +72,12 @@
       "objectPath": "/assets/r2d2/r2-d2.obj",
       "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
       "cameraDist": 200
-    }
+    },
+    "content": [
+      { "pumpKey": "rum", "fluidAmount": 50 },
+      { "pumpKey": "pineapple juice", "fluidAmount": 50 },
+      { "pumpKey": "coconut cream", "fluidAmount": 50 }
+    ]
   },
   {
     "name": "Margarita",
@@ -53,7 +85,12 @@
       "objectPath": "/assets/r2d2/r2-d2.obj",
       "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
       "cameraDist": 200
-    }
+    },
+    "content": [
+      { "pumpKey": "tequila", "fluidAmount": 50 },
+      { "pumpKey": "lime juice", "fluidAmount": 20 },
+      { "pumpKey": "triple sec", "fluidAmount": 20 }
+    ]
   },
   {
     "name": "Daiquiri",
@@ -61,7 +98,12 @@
       "objectPath": "/assets/r2d2/r2-d2.obj",
       "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
       "cameraDist": 200
-    }
+    },
+    "content": [
+      { "pumpKey": "rum", "fluidAmount": 50 },
+      { "pumpKey": "lime juice", "fluidAmount": 20 },
+      { "pumpKey": "simple syrup", "fluidAmount": 10 }
+    ]
   },
   {
     "name": "Manhattan",
@@ -69,7 +111,13 @@
       "objectPath": "/assets/r2d2/r2-d2.obj",
       "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
       "cameraDist": 200
-    }
+    },
+    "content": [
+      { "pumpKey": "rye whiskey", "fluidAmount": 50 },
+      { "pumpKey": "sweet vermouth", "fluidAmount": 20 },
+      { "pumpKey": "bitters", "fluidAmount": 5 },
+      { "pumpKey": "cherry", "fluidAmount": 1 }
+    ]
   },
   {
     "name": "Negroni",
@@ -77,7 +125,13 @@
       "objectPath": "/assets/r2d2/r2-d2.obj",
       "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
       "cameraDist": 200
-    }
+    },
+    "content": [
+      { "pumpKey": "gin", "fluidAmount": 40 },
+      { "pumpKey": "campari", "fluidAmount": 30 },
+      { "pumpKey": "sweet vermouth", "fluidAmount": 20 },
+      { "pumpKey": "orange peel", "fluidAmount": 1 }
+    ]
   },
   {
     "name": "Whiskey Sour",
@@ -85,7 +139,12 @@
       "objectPath": "/assets/r2d2/r2-d2.obj",
       "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
       "cameraDist": 200
-    }
+    },
+    "content": [
+      { "pumpKey": "whiskey", "fluidAmount": 50 },
+      { "pumpKey": "lemon juice", "fluidAmount": 20 },
+      { "pumpKey": "simple syrup", "fluidAmount": 20 }
+    ]
   },
   {
     "name": "Mai Tai",
@@ -93,7 +152,15 @@
       "objectPath": "/assets/r2d2/r2-d2.obj",
       "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
       "cameraDist": 200
-    }
+    },
+    "content": [
+      { "pumpKey": "rum", "fluidAmount": 40 },
+      { "pumpKey": "lime juice", "fluidAmount": 20 },
+      { "pumpKey": "orgeat syrup", "fluidAmount": 20 },
+      { "pumpKey": "orange liqueur", "fluidAmount": 10 },
+      { "pumpKey": "dark rum", "fluidAmount": 10 },
+      { "pumpKey": "mint sprig", "fluidAmount": 1 }
+    ]
   },
   {
     "name": "Screwdriver",
@@ -101,6 +168,10 @@
       "objectPath": "/assets/r2d2/r2-d2.obj",
       "texturePath": "/assets/r2d2/R2D2_Textures.jpg",
       "cameraDist": 200
-    }
+    },
+    "content": [
+      { "pumpKey": "vodka", "fluidAmount": 50 },
+      { "pumpKey": "orange juice", "fluidAmount": 100 }
+    ]
   }
 ]

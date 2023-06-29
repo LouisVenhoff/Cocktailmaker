@@ -13,12 +13,12 @@ type ScrollViewProps = {
 
 
 
-const testMesh:MeshSource = {objectPath:"/assets/r2d2/r2-d2.obj", texturePath:"/assets/r2d2/R2D2_Textures.jpg", cameraDist:200}
-const gearMesh:MeshSource = {objectPath:"/assets/gear/Gear.obj", texturePath:"/assets/gear/Gear_Texture.png", cameraDist:20}
+// const testMesh:MeshSource = {objectPath:"/assets/r2d2/r2-d2.obj", texturePath:"/assets/r2d2/R2D2_Textures.jpg", cameraDist:200}
+// const gearMesh:MeshSource = {objectPath:"/assets/gear/Gear.obj", texturePath:"/assets/gear/Gear_Texture.png", cameraDist:20}
 
 
-const cockt1:Cocktail = new Cocktail("R2D2",testMesh);
-const cockt2:Cocktail = new Cocktail("Gear", gearMesh);
+// const cockt1:Cocktail = new Cocktail("R2D2",testMesh);
+// const cockt2:Cocktail = new Cocktail("Gear", gearMesh);
 
 
 
