@@ -2,8 +2,9 @@ import React, { useState, useRef, useEffect } from "react";
 import "./cocktailContainerStyle.css";
 import ObjRenderer from "../../classes/objRenderer/objRenderer";
 import { MeshSource, Animation } from "../../classes/objRenderer/objRenderer";
-import PageProvider from "../pageProvider/pageProvider";
 import { Page } from "../../classes/pageLogic/pages";
+import { useNavigate } from "react-router-dom";
+import PageLogic from "../../classes/pageLogic/pageLogic";
 
 type CocktailContainerProps=
 {
@@ -22,6 +23,8 @@ const CocktailContainer:React.FC<CocktailContainerProps> = ({obj, name}) =>
     const [mesh, setMesh] = useState<MeshSource>(obj);
     const [cocktailName, setCocktailName] = useState<string>(name);
 
+
+
     useEffect(() => {
         if(canvasElement.current != undefined && mesh != undefined)
         {
@@ -33,8 +36,7 @@ const CocktailContainer:React.FC<CocktailContainerProps> = ({obj, name}) =>
 
 
     const selectCocktail = () => {
-       console.log("Hello World !");
-       PageProvider.activePage = Page.SELECT_PAGE;
+        PageLogic.setPage(Page.ORDER_PAGE);
     }
 
 

@@ -4,7 +4,7 @@ import './App.css';
 import Socket from './classes/socket/socket';
 import Header from './components/header/header';
 import ScrollView from './components/scrollView/scrollView';
-import PageProvider from './components/pageProvider/pageProvider';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 
 type LoginCommand = {
@@ -47,8 +47,16 @@ function App() {
   return (
     <div className="App">
       <Header headline="Cocktails" backBtnActive={true}/>
+          
+            <Router>
+              <Routes>
+                <Route path="/"  element={<ScrollView title="Cocktailkarte"/>}/>
+                <Route path="/detail"  element={<div><h1>Test</h1></div>}/>
+              </Routes>
+            </Router>
+          
+          
           {/* <ScrollView title="Cocktailkarte"/> */}
-      <PageProvider />
     </div>
   );
 }
