@@ -5,6 +5,11 @@ import Socket from './classes/socket/socket';
 import Header from './components/header/header';
 import ScrollView from './components/scrollView/scrollView';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import CocktailPage from './components/cocktailPage/cocktailPage';
+
+//DEBUG
+import Cocktail from './classes/cocktail/cocktail';
+import settings from "../src/settings/cocktails.json";
 
 
 type LoginCommand = {
@@ -18,8 +23,10 @@ function App() {
 
   const [connected, setConnected] = useState<boolean>(false);
   const [machineKey, setMachineKey] = useState<string>("");
+
   const [conn, setConn] = useState<Socket>(Socket.getInstance("ws://localhost:3014/ws", true, () => {login()}, () => {setConnected(false)}, (payload:any) => {messageHandler(payload)}))
   
+  const test:Cocktail = new Cocktail(settings[0].name, settings[0].mesh, settings[0].content);
 
   const login = () => {
 
@@ -51,7 +58,7 @@ function App() {
             <Router>
               <Routes>
                 <Route path="/"  element={<ScrollView title="Cocktailkarte"/>}/>
-                <Route path="/detail"  element={<div><h1>Test</h1></div>}/>
+                <Route path="/detail"  element={<CocktailPage  element={test}/>}/>
               </Routes>
             </Router>
           
