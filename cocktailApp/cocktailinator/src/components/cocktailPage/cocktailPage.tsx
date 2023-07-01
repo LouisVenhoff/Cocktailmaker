@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Cocktail from "../../classes/cocktail/cocktail";
 import "./cocktailPageStyle.css";
 import ObjRenderer, {Animation} from "../../classes/objRenderer/objRenderer";
+import InfoPanel from "../infoPanel/infoPanel";
 
 type CocktailPageProps = {
     element:Cocktail
@@ -36,8 +37,11 @@ const CocktailPage:React.FC<CocktailPageProps> = ({element}) => {
                 {cocktail.getName()}
             </p>
         </div>
-        <div id="informationDiv">
+        <div id="contentInfo">
 
+        </div>
+        <div id="informationDiv">
+            <InfoPanel headline="Zutaten" element={cocktail}/>
         </div>
     
     </div>);

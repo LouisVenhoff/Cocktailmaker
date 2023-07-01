@@ -31,6 +31,10 @@ class Cocktail{
         return this.mesh;
     }
 
+    public getContent():Ingridient[]{
+        return this.content;
+    }
+
     public make()
     {
         //TODO: Parse Ingridients Data to json and send through socket.send
