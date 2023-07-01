@@ -1,4 +1,5 @@
 import { MeshSource } from "../objRenderer/objRenderer";
+import Socket from "../socket/socket";
 
 export type Ingridient = {
     pumpKey:string,
@@ -11,6 +12,8 @@ class Cocktail{
     private mesh:MeshSource;
 
     private content:Ingridient[];
+
+    private sendSocket:Socket = Socket.getInstance();
 
     constructor(name:string, mesh:MeshSource, content:Ingridient[])
     {
@@ -31,6 +34,20 @@ class Cocktail{
     public make()
     {
         //TODO: Parse Ingridients Data to json and send through socket.send
+
+        if(this.content.length === 0)
+        {
+            return;
+        }
+        let payload:string = JSON.stringify(this.content);
+
+        if(this.sendSocket.connectionState !== true)
+        {
+            throw("Socket not connected!");
+        }
+
+        this.sendSocket.send(payload);
+
     }
 
 }

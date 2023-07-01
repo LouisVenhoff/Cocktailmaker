@@ -22,14 +22,21 @@ class Socket
 
     private static instance:Socket | null = null;
 
-    public static getInstance(addr:string, autoConnect:boolean, onConnect:() => void, onDisconnect:() => void, onMessage: (payload:any) => void):Socket{
+    public static getInstance(addr?:string, autoConnect?:boolean, onConnect?:() => void, onDisconnect?:() => void, onMessage?: (payload:any) => void):Socket{
 
         if(Socket.instance !== null){
             return Socket.instance;
         }
         else{
-            Socket.instance = new Socket(addr, autoConnect, onConnect, onDisconnect, onMessage);
-            return Socket.instance;
+           
+                if(addr !== undefined && autoConnect !== undefined && onConnect !== undefined && onDisconnect !== undefined && onMessage !== undefined)
+                {
+                    Socket.instance = new Socket(addr, autoConnect, onConnect, onDisconnect, onMessage);
+                    return Socket.instance;
+                }  
+                else{
+                    throw("Socket Props error");
+                }
         }
 
     }

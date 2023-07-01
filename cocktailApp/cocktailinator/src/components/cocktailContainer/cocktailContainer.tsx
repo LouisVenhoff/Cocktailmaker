@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import "./cocktailContainerStyle.css";
 import ObjRenderer from "../../classes/objRenderer/objRenderer";
 import { MeshSource, Animation } from "../../classes/objRenderer/objRenderer";
+import PageProvider from "../pageProvider/pageProvider";
+import { Page } from "../../classes/pageLogic/pages";
 
 type CocktailContainerProps=
 {
@@ -30,9 +32,15 @@ const CocktailContainer:React.FC<CocktailContainerProps> = ({obj, name}) =>
     },[canvasElement]);
 
 
+    const selectCocktail = () => {
+       console.log("Hello World !");
+       PageProvider.activePage = Page.SELECT_PAGE;
+    }
+
+
 
     return(
-    <div className="cocktailContainerMainDiv">
+    <div className="cocktailContainerMainDiv" onClick={() => {selectCocktail()}}>
         <div className="objCanvas" ref={canvasElement}>
 
         </div>

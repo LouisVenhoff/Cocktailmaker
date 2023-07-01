@@ -4,6 +4,7 @@ import './App.css';
 import Socket from './classes/socket/socket';
 import Header from './components/header/header';
 import ScrollView from './components/scrollView/scrollView';
+import PageProvider from './components/pageProvider/pageProvider';
 
 
 type LoginCommand = {
@@ -46,7 +47,8 @@ function App() {
   return (
     <div className="App">
       <Header headline="Cocktails" backBtnActive={true}/>
-      <ScrollView title="Cocktailkarte"/>
+          {/* <ScrollView title="Cocktailkarte"/> */}
+      <PageProvider />
     </div>
   );
 }
