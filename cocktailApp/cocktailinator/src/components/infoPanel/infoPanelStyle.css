@@ -6,7 +6,11 @@
     text-align:left;
     color:black;
     font-size:20px;
-    bottom:200px;
+    margin-bottom:50px;
+}
+
+.infoPanelHeadline{
+    color:whitesmoke;
 }
 
 .bodyDiv{

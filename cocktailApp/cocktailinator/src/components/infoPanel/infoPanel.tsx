@@ -43,7 +43,7 @@ const InfoPanel:React.FC<InfoPanelProps> = ({headline, element}) => {
 
     return(
     <div className="infoPanelDiv">
-        <h3>{headline}</h3>
+        <p className="infoPanelHeadline">{headline}</p>
         <div className="bodyDiv">
             {infoElements}
         </div>

@@ -3,6 +3,8 @@
     flex-direction: column;
     justify-content:start;
     align-items:center;
+    overflow:hidden;
+    height:100%;
 }
 
 #previewDiv{
@@ -17,6 +19,7 @@
     justify-content: center;
     align-items:flex-start;
     z-index:10;
+    margin-bottom:10px;
 }
 
 #objDiv{
@@ -30,7 +33,7 @@
 #cocktailDesc{
     position:relative;
     left:20px;
-    margin-bottom:60px;
+    margin-bottom:50px;
     font-size: 30px;
 }
 
@@ -38,7 +41,10 @@
     position:relative;
     width:90%;
     height:200px;
-    margin-top:20px;
+    bottom:20px;
     text-align:left;
-    /* background-color:white; */
+}
+
+#buttonDiv{
+    position:relative;
 }

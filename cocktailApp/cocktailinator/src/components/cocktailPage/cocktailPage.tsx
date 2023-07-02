@@ -3,6 +3,7 @@ import Cocktail from "../../classes/cocktail/cocktail";
 import "./cocktailPageStyle.css";
 import ObjRenderer, {Animation} from "../../classes/objRenderer/objRenderer";
 import InfoPanel from "../infoPanel/infoPanel";
+import { Button } from "@chakra-ui/react";
 
 type CocktailPageProps = {
     element:Cocktail
@@ -37,12 +38,13 @@ const CocktailPage:React.FC<CocktailPageProps> = ({element}) => {
                 {cocktail.getName()}
             </p>
         </div>
-        <div id="contentInfo">
-
-        </div>
         <div id="informationDiv">
             <InfoPanel headline="Zutaten" element={cocktail}/>
         </div>
+        <div id="buttonDiv">
+            <Button colorScheme="lightcoral" size="lg" width="350px" variant={"outline"}>Bestellen</Button>
+        </div>
+       
     
     </div>);
 
