@@ -3,8 +3,10 @@ import "./cocktailContainerStyle.css";
 import ObjRenderer from "../../classes/objRenderer/objRenderer";
 import { MeshSource, Animation } from "../../classes/objRenderer/objRenderer";
 import { Page } from "../../classes/pageLogic/pages";
-import { useNavigate } from "react-router-dom";
 import PageLogic from "../../classes/pageLogic/pageLogic";
+import {useDispatch} from "react-redux"
+import {load} from "../../features/currentCocktail";
+
 
 type CocktailContainerProps=
 {
@@ -23,6 +25,7 @@ const CocktailContainer:React.FC<CocktailContainerProps> = ({obj, name}) =>
     const [mesh, setMesh] = useState<MeshSource>(obj);
     const [cocktailName, setCocktailName] = useState<string>(name);
 
+    const dispatch:any = useDispatch();
 
 
     useEffect(() => {
@@ -36,6 +39,7 @@ const CocktailContainer:React.FC<CocktailContainerProps> = ({obj, name}) =>
 
 
     const selectCocktail = () => {
+    
         PageLogic.setPage(Page.ORDER_PAGE);
     }
 

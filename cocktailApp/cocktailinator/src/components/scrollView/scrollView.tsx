@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 
 type ScrollViewProps = {
-    title: string
+    title: string,
 }
 
 

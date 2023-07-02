@@ -6,6 +6,9 @@ import Header from './components/header/header';
 import ScrollView from './components/scrollView/scrollView';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CocktailPage from './components/cocktailPage/cocktailPage';
+import { configureStore } from '@reduxjs/toolkit';
+import {useSelector} from "react-redux"; 
+
 
 //DEBUG
 import Cocktail from './classes/cocktail/cocktail';
@@ -26,7 +29,15 @@ function App() {
 
   const [conn, setConn] = useState<Socket>(Socket.getInstance("ws://localhost:3014/ws", true, () => {login()}, () => {setConnected(false)}, (payload:any) => {messageHandler(payload)}))
   
-  const test:Cocktail = new Cocktail(settings[0].name, settings[0].mesh, settings[0].content);
+  const [currentCocktail, setCurrentCocktail] = useState<Cocktail>(new Cocktail("Placeholder", settings[0].mesh, []));
+
+  const cocktailRedux = useSelector((state:any ) => state.currentCocktail.value);
+
+  // const test:Cocktail = new Cocktail(settings[0].name, settings[0].mesh, settings[0].content); //Debug
+
+  useEffect(() => {setCurrentCocktail(getCurrentCocktail())},[cocktailRedux]);
+
+
 
   const login = () => {
 
@@ -48,6 +59,25 @@ function App() {
     }
   }
 
+  const getCurrentCocktail = ():Cocktail => {
+    
+    let cocktailJSON = cocktailRedux.objStr;
+
+    let tempCocktail:Cocktail = currentCocktail;
+
+   if(cocktailJSON === "")
+   {
+      console.log("No Cocktail found");
+   }
+   else
+   {
+      tempCocktail = JSON.parse(cocktailJSON);
+   }
+    
+    
+    return tempCocktail;
+  }
+
 
 
   
@@ -58,7 +88,7 @@ function App() {
             <Router>
               <Routes>
                 <Route path="/"  element={<ScrollView title="Cocktailkarte"/>}/>
-                <Route path="/detail"  element={<CocktailPage  element={test}/>}/>
+                <Route path="/detail"  element={<CocktailPage  element={currentCocktail}/>}/>
               </Routes>
             </Router>
           

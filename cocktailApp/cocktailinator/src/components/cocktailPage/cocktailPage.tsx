@@ -25,7 +25,9 @@ const CocktailPage:React.FC<CocktailPageProps> = ({element}) => {
         setRenderer(new ObjRenderer(350, 350, cocktail.getMesh(), Animation.STATIC, objCanvas.current));
     },[]);
 
-
+    const order = () => {
+        cocktail.make();
+    }
 
 
     return(
@@ -42,7 +44,7 @@ const CocktailPage:React.FC<CocktailPageProps> = ({element}) => {
             <InfoPanel headline="Zutaten" element={cocktail}/>
         </div>
         <div id="buttonDiv">
-            <Button colorScheme="lightcoral" size="lg" width="350px" variant={"outline"}>Bestellen</Button>
+            <Button colorScheme="lightcoral" size="lg" width="350px" variant={"outline"} onClick={() => {order()}}>Bestellen</Button>
         </div>
        
     

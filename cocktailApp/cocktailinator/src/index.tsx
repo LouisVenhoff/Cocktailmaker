@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
-
+import { configureStore } from '@reduxjs/toolkit';
+import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
+import cocktailReducer from "./features/currentCocktail";
 
-
-
+ 
 const theme = extendTheme({
    colors:{
     lightcoral: {
@@ -26,6 +27,12 @@ const theme = extendTheme({
 })
 
 
+const store = configureStore({
+  reducer:{
+    currentCocktail: cocktailReducer
+  }
+})
+
 
 
 const root = ReactDOM.createRoot(
@@ -33,7 +40,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <ChakraProvider resetCSS={false} theme={theme}>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </ChakraProvider>
 );
 
