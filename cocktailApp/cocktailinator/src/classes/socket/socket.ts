@@ -152,6 +152,10 @@ class Socket
         
     }
 
+    //TODO: Add static function for convertig payload to server format 
+    //@param: payload obj
+    //@return: obj with id, key and payload field
+
 }
 
 export default Socket;
