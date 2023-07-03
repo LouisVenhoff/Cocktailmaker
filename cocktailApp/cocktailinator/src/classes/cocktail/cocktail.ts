@@ -8,10 +8,10 @@ export type Ingridient = {
 
 class Cocktail{
 
-    private name:string;
-    private mesh:MeshSource;
+    public name:string;
+    public mesh:MeshSource;
 
-    private content:Ingridient[];
+    public content:Ingridient[];
 
     private sendSocket:Socket = Socket.getInstance();
 
@@ -20,19 +20,6 @@ class Cocktail{
         this.name = name;
         this.mesh = mesh;
         this.content = content;
-    }
-
-    public getName():string
-    {
-        return this.name;
-    }
-
-    public getMesh():MeshSource{
-        return this.mesh;
-    }
-
-    public getContent():Ingridient[]{
-        return this.content;
     }
 
     public make()

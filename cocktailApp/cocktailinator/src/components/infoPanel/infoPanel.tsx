@@ -26,7 +26,7 @@ const InfoPanel:React.FC<InfoPanelProps> = ({headline, element}) => {
 
 
     const generateInfoElements = () => {
-        let contents:Ingridient[] = element.getContent();
+        let contents:Ingridient[] = element.content;
 
         let temp:JSX.Element[] = [];
 

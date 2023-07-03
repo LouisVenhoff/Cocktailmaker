@@ -6,7 +6,7 @@ export const currentCocktailSlice = createSlice({
     initialState:{value:{objStr: ""}},
     reducers:{ 
         load: (state, action) => {
-            state.value.objStr = JSON.stringify(action.payload);
+            state.value.objStr = action.payload;
         },
 
     }

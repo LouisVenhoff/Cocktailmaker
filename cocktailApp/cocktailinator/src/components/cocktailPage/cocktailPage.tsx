@@ -4,6 +4,7 @@ import "./cocktailPageStyle.css";
 import ObjRenderer, {Animation} from "../../classes/objRenderer/objRenderer";
 import InfoPanel from "../infoPanel/infoPanel";
 import { Button } from "@chakra-ui/react";
+import {useSelector} from "react-redux";
 
 type CocktailPageProps = {
     element:Cocktail
@@ -20,10 +21,21 @@ const CocktailPage:React.FC<CocktailPageProps> = ({element}) => {
 
     const objCanvas = useRef<any>();
 
+    const cocktailRedux:any = useSelector((state:any) => state.currentCocktail.value);
+
 
     useEffect(() => {
-        setRenderer(new ObjRenderer(350, 350, cocktail.getMesh(), Animation.STATIC, objCanvas.current));
+        
+        setRenderer(new ObjRenderer(350, 350, cocktail.mesh, Animation.STATIC, objCanvas.current));
+    
     },[]);
+
+    useEffect(() => {
+
+        console.log(element);
+       //setCocktail(element);
+
+    },[element]);
 
     const order = () => {
         cocktail.make();
@@ -37,7 +49,7 @@ const CocktailPage:React.FC<CocktailPageProps> = ({element}) => {
 
             </div>
             <p id="cocktailDesc">
-                {cocktail.getName()}
+                {cocktail.name}
             </p>
         </div>
         <div id="informationDiv">

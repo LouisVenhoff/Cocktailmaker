@@ -22,7 +22,7 @@ const ContainerRow:React.FC<CocktailRowProps> = ({left, right}) =>
 
     useEffect(() => {
         if(right !== undefined){
-            setRightElement(<CocktailContainer obj={right.getMesh()} name={right.getName()}/>);
+            setRightElement(<CocktailContainer element={right}/>);
         }
     },[]);
 
@@ -30,7 +30,7 @@ const ContainerRow:React.FC<CocktailRowProps> = ({left, right}) =>
 
     return(
     <div className="containerRowMainDiv">
-        <CocktailContainer obj={left.getMesh()} name={left.getName()}/>
+        <CocktailContainer element={left}/>
         {rightElement}
     </div>
     )

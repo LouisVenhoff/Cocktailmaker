@@ -7,6 +7,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
 import cocktailReducer from "./features/currentCocktail";
+import pageReducer from "./features/currentPage";
 
  
 const theme = extendTheme({
@@ -29,7 +30,8 @@ const theme = extendTheme({
 
 const store = configureStore({
   reducer:{
-    currentCocktail: cocktailReducer
+    currentCocktail: cocktailReducer,
+    currentPage: pageReducer
   }
 })
 

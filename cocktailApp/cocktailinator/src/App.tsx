@@ -4,7 +4,6 @@ import './App.css';
 import Socket from './classes/socket/socket';
 import Header from './components/header/header';
 import ScrollView from './components/scrollView/scrollView';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CocktailPage from './components/cocktailPage/cocktailPage';
 import { configureStore } from '@reduxjs/toolkit';
 import {useSelector} from "react-redux"; 
@@ -13,6 +12,8 @@ import {useSelector} from "react-redux";
 //DEBUG
 import Cocktail from './classes/cocktail/cocktail';
 import settings from "../src/settings/cocktails.json";
+import PageLogic from './classes/pageLogic/pageLogic';
+import { Page } from './classes/pageLogic/pages';
 
 
 type LoginCommand = {
@@ -31,11 +32,26 @@ function App() {
   
   const [currentCocktail, setCurrentCocktail] = useState<Cocktail>(new Cocktail("Placeholder", settings[0].mesh, []));
 
-  const cocktailRedux = useSelector((state:any ) => state.currentCocktail.value);
+  const cocktailRedux = useSelector((state:any) => state.currentCocktail.value);
+  const pageRedux = useSelector((state:any) => state.currentPage.value);
+
+
+  const [renderElement, setRenderElement] = useState<JSX.Element>(<ScrollView title="Cocktailkarte"/>);
 
   // const test:Cocktail = new Cocktail(settings[0].name, settings[0].mesh, settings[0].content); //Debug
+  
+  useEffect(() => {
 
-  useEffect(() => {setCurrentCocktail(getCurrentCocktail())},[cocktailRedux]);
+        if(cocktailRedux.objStr !== "")
+        {
+            let cocktailElement:Cocktail = JSON.parse(cocktailRedux.objStr)
+          
+            console.log(cocktailElement);
+
+            setRenderElement(<CocktailPage element={cocktailElement}/>);
+        }
+
+  },[pageRedux.page]);
 
 
 
@@ -59,24 +75,24 @@ function App() {
     }
   }
 
-  const getCurrentCocktail = ():Cocktail => {
+  // const getCurrentCocktail = ():Cocktail => {
     
-    let cocktailJSON = cocktailRedux.objStr;
+  //   let cocktailJSON = cocktailRedux.objStr;
 
-    let tempCocktail:Cocktail = currentCocktail;
+  //   let tempCocktail:Cocktail = currentCocktail;
 
-   if(cocktailJSON === "")
-   {
-      console.log("No Cocktail found");
-   }
-   else
-   {
-      tempCocktail = JSON.parse(cocktailJSON);
-   }
+  //  if(cocktailJSON === "")
+  //  {
+  //     console.log("No Cocktail found");
+  //  }
+  //  else
+  //  {
+  //     tempCocktail = JSON.parse(cocktailJSON);
+  //  }
     
     
-    return tempCocktail;
-  }
+  //   return tempCocktail;
+  // }
 
 
 
@@ -84,16 +100,7 @@ function App() {
   return (
     <div className="App">
       <Header headline="Cocktails" backBtnActive={true}/>
-          
-            <Router>
-              <Routes>
-                <Route path="/"  element={<ScrollView title="Cocktailkarte"/>}/>
-                <Route path="/detail"  element={<CocktailPage  element={currentCocktail}/>}/>
-              </Routes>
-            </Router>
-          
-          
-          {/* <ScrollView title="Cocktailkarte"/> */}
+          {renderElement}
     </div>
   );
 }
