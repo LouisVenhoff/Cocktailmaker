@@ -44,7 +44,7 @@ function App() {
 
         if(cocktailRedux.objStr !== "")
         {
-            let cocktailElement:Cocktail = JSON.parse(cocktailRedux.objStr)
+            let cocktailElement:Cocktail = Cocktail.instantiate(cocktailRedux.objStr);
           
             console.log(cocktailElement);
 

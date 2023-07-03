@@ -32,8 +32,7 @@ const CocktailPage:React.FC<CocktailPageProps> = ({element}) => {
 
     useEffect(() => {
 
-        console.log(element);
-       //setCocktail(element);
+       setCocktail(element);
 
     },[element]);
 

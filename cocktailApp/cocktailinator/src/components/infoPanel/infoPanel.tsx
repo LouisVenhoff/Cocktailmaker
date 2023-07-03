@@ -25,8 +25,14 @@ const InfoPanel:React.FC<InfoPanelProps> = ({headline, element}) => {
     },[]);
 
 
+    useEffect(() => {
+
+        setCocktail(element);
+
+    },[element]); 
+
     const generateInfoElements = () => {
-        let contents:Ingridient[] = element.content;
+        let contents:Ingridient[] = cocktail.content;
 
         let temp:JSX.Element[] = [];
 

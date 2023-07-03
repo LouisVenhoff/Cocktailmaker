@@ -8,36 +8,63 @@ export type Ingridient = {
 
 class Cocktail{
 
-    public name:string;
-    public mesh:MeshSource;
+    private _name:string;
+    private _mesh:MeshSource;
 
-    public content:Ingridient[];
+    private _content:Ingridient[];
 
     private sendSocket:Socket = Socket.getInstance();
 
     constructor(name:string, mesh:MeshSource, content:Ingridient[])
     {
-        this.name = name;
-        this.mesh = mesh;
-        this.content = content;
+        this._name = name;
+        this._mesh = mesh;
+        this._content = content;
     }
+
+    public get name():string{
+        return this._name;
+    }
+
+    public get mesh():MeshSource{
+        return this._mesh;
+    }
+
+    public get content():Ingridient[]{
+        return this._content;
+    }
+
+    public static instantiate(json:string):Cocktail{
+        
+        let element:any = JSON.parse(json);
+        
+        return new Cocktail(element._name, element._mesh, element._content);
+    }
+
 
     public make()
     {
         //TODO: Parse Ingridients Data to json and send through socket.send
 
-        if(this.content.length === 0)
+        if(this._content.length === 0)
         {
             return;
         }
-        let payload:string = JSON.stringify(this.content);
+        let payload:string = JSON.stringify(this._content);
+
+        let payloadObj = {
+            id: "",
+            key: "",
+            payload: this._content
+        }
+
 
         if(this.sendSocket.connectionState !== true)
         {
             throw("Socket not connected!");
         }
 
-        this.sendSocket.send(payload);
+        this.sendSocket.send(payloadObj);
 
     }
 
