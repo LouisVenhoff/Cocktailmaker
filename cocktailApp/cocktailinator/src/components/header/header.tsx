@@ -4,16 +4,19 @@ import { motion } from "framer-motion"
 import "./headerStyle.css";
 import PageLogic from "../../classes/pageLogic/pageLogic";
 import { Page } from "../../classes/pageLogic/pages";
+import ConnectionLamp from "../connectionLamp/connectionLamp";
+
 
 type HeaderProps = {
-    headline:string
-    backBtnActive:boolean
+    headline:string,
+    backBtnActive:boolean,
+    connected:boolean
 }
 
 
 
 
-const Header:React.FC<HeaderProps> = ({headline, backBtnActive}) => 
+const Header:React.FC<HeaderProps> = ({headline, backBtnActive, connected}) => 
 {
 
     const [headerText, setHeaderText] = useState<string>(headline);
@@ -41,6 +44,7 @@ const Header:React.FC<HeaderProps> = ({headline, backBtnActive}) =>
     return(<div className="headerMainDiv">
         <ArrowBackIcon className="backBtnElement" boxSize={7} display={backBtnDisplayStr} onClick={() => {PageLogic.setPage(Page.SELECT_PAGE)}}/>
         <h2 className="headerText">{headerText}</h2>
+        <ConnectionLamp connected={connected}/>
     </div>
     );
 }

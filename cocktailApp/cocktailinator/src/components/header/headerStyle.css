@@ -7,13 +7,10 @@
     color:whitesmoke;
     display:flex;
     flex-direction:row;
-    justify-content:flex-start;
+    justify-content:space-around;
     align-items:center;
 }
 
-.backBtnElement{
-    margin-left:10px;
-}
 
 
 .headerText{

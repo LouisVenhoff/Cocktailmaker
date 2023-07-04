@@ -28,7 +28,7 @@ function App() {
   const [connected, setConnected] = useState<boolean>(false);
   const [machineKey, setMachineKey] = useState<string>("");
 
-  const [conn, setConn] = useState<Socket>(Socket.getInstance("ws://localhost:3014/ws", true, () => {login()}, () => {setConnected(false)}, (payload:any) => {messageHandler(payload)}))
+  const [conn, setConn] = useState<Socket>(Socket.getInstance("ws://localhost:3014/ws", true, () => {login()}, () => {onDisconnect()}, (payload:any) => {messageHandler(payload)}))
   
   const [currentCocktail, setCurrentCocktail] = useState<Cocktail>(new Cocktail("Placeholder", settings[0].mesh, []));
 
@@ -53,6 +53,13 @@ function App() {
 
   },[pageRedux.page]);
 
+  useEffect(() => {
+    if(machineKey !== "")
+    {
+      setConnected(true);
+    }
+  },[machineKey]);
+
 
 
   const login = () => {
@@ -64,6 +71,12 @@ function App() {
 
     conn.send(payload);
 
+  }
+
+  const onDisconnect = () => 
+  {
+    setConnected(false);
+    setMachineKey("");
   }
 
 
@@ -99,7 +112,7 @@ function App() {
   
   return (
     <div className="App">
-      <Header headline="Cocktails" backBtnActive={true}/>
+      <Header headline="Cocktails" backBtnActive={true} connected={connected}/>
           {renderElement}
     </div>
   );
