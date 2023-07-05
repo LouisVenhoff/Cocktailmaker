@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Socket from './classes/socket/socket';
@@ -22,13 +22,14 @@ type LoginCommand = {
 }
 
 
+
 function App() {
   
 
   const [connected, setConnected] = useState<boolean>(false);
   const [machineKey, setMachineKey] = useState<string>("");
 
-  const [conn, setConn] = useState<Socket>(Socket.getInstance("ws://localhost:3014/ws", true, () => {login()}, () => {onDisconnect()}, (payload:any) => {messageHandler(payload)}))
+  const conn:Socket = Socket.getInstance("ws://localhost:3014/ws", true, () => {login()}, () => {onDisconnect()}, (payload:any) => {messageHandler(payload)});
   
   const [currentCocktail, setCurrentCocktail] = useState<Cocktail>(new Cocktail("Placeholder", settings[0].mesh, []));
 
