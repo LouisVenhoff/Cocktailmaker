@@ -42,13 +42,9 @@ func wsReader(conn *websocket.Conn) {
 		messageType, p, err := conn.ReadMessage()
 
 		if err != nil {
-			conManager.IsConnected = false
-			fmt.Println(err)
+			// conManager.IsConnected = false
+			conManager.TriggerDisconnect()
 			return
-		}
-
-		if messageType == websocket.CloseGoingAway {
-			conManager.IsConnected = false
 		}
 
 		if err != nil {

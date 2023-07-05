@@ -8,6 +8,8 @@ import (
 )
 
 var IsConnected bool = false
+var connectionCandidates int = 0
+
 var sessionKey string = ""
 var keyLen int = 10
 
@@ -52,9 +54,10 @@ func ProcessPayload(rawPayload string) string {
 	// var optionOut PayloadObj
 	var outStr string = ""
 	json.Unmarshal([]byte(rawPayload), &data)
-
+	fmt.Printf("Candiadtes:%i", connectionCandidates)
 	switch data.Key {
 	case "":
+		connectionCandidates++
 		loginOut.Id = id
 		if IsConnected == false {
 			loginOut.Key = sessionKey
@@ -80,6 +83,17 @@ func ProcessPayload(rawPayload string) string {
 
 	return outStr
 
+}
+
+func TriggerDisconnect() {
+
+	if connectionCandidates == 0 {
+		connectionCandidates--
+	}
+
+	if connectionCandidates == 0 {
+		IsConnected = false
+	}
 }
 
 func processOptionCmd(payload PayloadObj) {
