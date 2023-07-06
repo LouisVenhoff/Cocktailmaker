@@ -60,6 +60,7 @@ class Socket
 
     public connect()
     {
+        console.log("Connect function executed!");
         this.socketInst = new WebSocket(`${this.addr}`);
         this.addListeners();
 

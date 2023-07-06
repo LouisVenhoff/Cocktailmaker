@@ -3,7 +3,6 @@ import "./cocktailContainerStyle.css";
 import ObjRenderer from "../../classes/objRenderer/objRenderer";
 import { MeshSource, Animation } from "../../classes/objRenderer/objRenderer";
 import { Page } from "../../classes/pageLogic/pages";
-import PageLogic from "../../classes/pageLogic/pageLogic";
 import {useDispatch} from "react-redux"
 import {load} from "../../features/currentCocktail";
 import { switchPage } from "../../features/currentPage";
@@ -14,9 +13,6 @@ type CocktailContainerProps=
 {
     element:Cocktail
 }
-
-
-
 
 const CocktailContainer:React.FC<CocktailContainerProps> = ({element}) => 
 {
