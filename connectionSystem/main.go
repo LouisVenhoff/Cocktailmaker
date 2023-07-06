@@ -41,6 +41,11 @@ func wsReader(conn *websocket.Conn) {
 	for {
 		messageType, p, err := conn.ReadMessage()
 
+		if messageType >= 1000 && messageType <= 1015 {
+			conManager.TriggerDisconnect()
+			return
+		}
+
 		if err != nil {
 			// conManager.IsConnected = false
 			conManager.TriggerDisconnect()

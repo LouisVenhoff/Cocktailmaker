@@ -54,7 +54,6 @@ func ProcessPayload(rawPayload string) string {
 	// var optionOut PayloadObj
 	var outStr string = ""
 	json.Unmarshal([]byte(rawPayload), &data)
-	fmt.Printf("Candiadtes:%i", connectionCandidates)
 	switch data.Key {
 	case "":
 		connectionCandidates++
@@ -87,7 +86,7 @@ func ProcessPayload(rawPayload string) string {
 
 func TriggerDisconnect() {
 
-	if connectionCandidates == 0 {
+	if connectionCandidates != 0 {
 		connectionCandidates--
 	}
 
